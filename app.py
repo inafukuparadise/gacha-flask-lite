@@ -23,7 +23,7 @@ RESULTS = [
     {"name": "ゾンビたち", "img": "images/Zombiduo.jpg"},
 ]
 
-# ===== HTML (Render対応) =====
+# ===== HTML =====
 HTML = r"""<!doctype html>
 <html lang="ja">
 <head>
@@ -63,11 +63,28 @@ body {
   margin:.6em auto; border-radius:18px;
   box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
+
+/* ===== 白フチ文字（共通クラス） ===== */
+.outlined {
+  color: var(--accent);
+  font-weight: 800;
+  text-shadow:
+    -2px -2px 0 #fff,
+     2px -2px 0 #fff,
+    -2px  2px 0 #fff,
+     2px  2px 0 #fff,
+     0 3px 6px rgba(0,0,0,.25);
+  -webkit-text-stroke: 0.8px #fff;
+}
+
 #result-name {
-  font-size:2em; font-weight:800; color:var(--accent);
+  font-size:2em;
+  font-weight:800;
+  color:var(--accent);
   text-shadow:-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff,0 3px 6px rgba(0,0,0,.25);
   -webkit-text-stroke:0.8px #fff;
 }
+
 @media (max-width:600px){
   .btn{width:85vw !important;font-size:16px !important;padding:1em .8em !important;}
   .media{max-width:85vw !important;}
@@ -93,7 +110,7 @@ body {
 
     <!-- 画面：スタート -->
     <div id="screen-start" class="row">
-      <h1>ガチャのすけ・ガチャどう</h1>
+      <h1 class="outlined">ガチャのすけ・ガチャどう</h1>
       <button class="btn" id="btn-start">スタート ▶️</button>
     </div>
 
@@ -105,13 +122,13 @@ body {
 
     <!-- 画面：回転 -->
     <div id="screen-rolling" class="row hidden">
-      <h2>🌀 ガチャを回しています…</h2>
+      <h2 class="outlined">🌀 ガチャを回しています…</h2>
       <img class="media" src="/static/images/roll.gif" alt="rolling">
     </div>
 
     <!-- 画面：開封 -->
     <div id="screen-open" class="row hidden">
-      <h2>💥 カプセルが開きます！</h2>
+      <h2 class="outlined">💥 カプセルが開きます！</h2>
       <img class="media" src="/static/images/open.gif" alt="opening">
     </div>
 
@@ -129,7 +146,7 @@ body {
 </div>
 
 <script>
-const screens={start:screenStart=document.getElementById("screen-start"),
+const screens={start:document.getElementById("screen-start"),
   home:document.getElementById("screen-home"),
   rolling:document.getElementById("screen-rolling"),
   open:document.getElementById("screen-open"),
@@ -166,7 +183,7 @@ def index():
 def api_gacha():
     return jsonify(random.choice(RESULTS))
 
-# ===== Render対応（ポート動的取得） =====
+# ===== Render対応 =====
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
