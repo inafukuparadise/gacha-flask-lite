@@ -29,7 +29,7 @@ HTML = r"""<!doctype html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-<title>ガチャのすけ・ガチャどう</title>
+<title>ガチャのすけガチャどう</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root { --btn-w:340px; --accent:#ff6fa3; }
