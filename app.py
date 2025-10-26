@@ -5,7 +5,7 @@ app = Flask(__name__, static_folder="static", static_url_path="/static")
 
 # ===== 抽選データ =====
 RESULTS = [
-    {"name": "🐱 ねこ", "img": "images/catRelax.jpg"},
+    {"name": "ねこ", "img": "images/catRelax.jpg"},
     {"name": "お医者さん", "img": "images/DoctorDuo.jpg"},
     {"name": "出っ歯いちくん", "img": "images/DeppaIchi.jpg"},
     {"name": "出っ歯くんくん", "img": "images/DeppaKun.jpg"},
@@ -110,7 +110,7 @@ body {
 
     <!-- 画面：スタート -->
     <div id="screen-start" class="row">
-      <h1 class="outlined">ガチャのすけ・ガチャどう</h1>
+      <h1 class="outlined">ガチャのすけガチャどう</h1>
       <button class="btn" id="btn-start">スタート ▶️</button>
     </div>
 
@@ -122,13 +122,13 @@ body {
 
     <!-- 画面：回転 -->
     <div id="screen-rolling" class="row hidden">
-      <h2 class="outlined">🌀 ガチャを回しています…</h2>
+      <h2 class="outlined">ガチャを回しています…</h2>
       <img class="media" src="/static/images/roll.gif" alt="rolling">
     </div>
 
     <!-- 画面：開封 -->
     <div id="screen-open" class="row hidden">
-      <h2 class="outlined">💥 カプセルが開きます！</h2>
+      <h2 class="outlined">カプセルが開きます！</h2>
       <img class="media" src="/static/images/open.gif" alt="opening">
     </div>
 
